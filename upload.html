@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brain Tumor Classification - Upload</title>
+</head>
+<body>
+    <h1>Upload an Image</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Predict">
+    </form>
+    {% if class_label %}
+    <h2>Prediction: {{ class_label }}</h2>
+    <img src="{{ url_for('static', filename='predicted_image.jpg') }}" alt="Predicted Image">
+    {% endif %}
+</body>
+</html>

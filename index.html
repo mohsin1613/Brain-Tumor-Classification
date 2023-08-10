@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brain Tumor Classification</title>
+    <style>
+        body {
+            /* background-image: url("/static/background4.jpg"); */
+            background-size:cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            background-repeat: no-repeat;
+           scroll-behavior:smooth;
+            /* new code */
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* height: 100vh; /* Set the height of the body to the viewport height */
+            /* margin: 0; Remove default margin */
+            background-color: #9d6767;
+             /* Set a background color */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            color: rgb(10, 227, 162);
+            font-size:50px;
+            font-weight: bold;
+            background-color: rgba(53, 51, 51, 0.712);
+            width: 800px;
+            margin-left: 34rem;
+
+        }
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+        input[type="file"] {
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            margin-left: 10rem;
+        }
+        input[type="submit"] {
+            background-color: #0193f5;
+            color: white;
+            border:#3498db;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 25px;
+            font-weight: bold;
+            height: 3rem;
+            width: 10rem;
+
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        h2 {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            padding-top: 14px;
+            margin-top: 25px;
+            background-color: black;
+            height: 40px;
+            width: 450px;
+            margin-left: 45rem;
+            /* width: 500px; */
+            /* margin-top: 20px; */
+        }
+        span{
+           color:rgb(5, 255, 147);
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%; 
+            margin-top: 50px;
+            position:relative;
+            height: 350px;
+            width: 300x;
+            border: white;
+            border-color: white;
+        
+        }
+        .img1{
+            margin-left: 10rem;
+            margin-top: 0rem;
+            float: left;
+            height:100px;
+            width: 400px;
+        }
+        .img2{
+            margin-right: 10rem;
+            margin-top: 0rem;
+            float: right;
+            height:100px;
+            width: 400px;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+   
+    <h1><span style="color:white;font-size:55px;">B</span>rain <span style="color:white;font-size:55px;">T</span>umor <span style="color:white;font-size:55px;">C</span>lassification</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Predict">
+    </form>
+    <div class="img1">
+        <img src="/static/D2.png" class="src">
+      </div>
+      <div class="img2">
+        <img src="/static/BG2.png" alt="" class="src">
+    </div>
+    {% if predicted_class %}
+    <img src="{{ predicted_image }}" alt="Predicted Image">
+    <h2>Predicted Class: <span>{{ predicted_class }}</span></h2>
+    {% endif %}
+
+ 
+
+
+</body>
+</html>
